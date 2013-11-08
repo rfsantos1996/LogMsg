@@ -1,0 +1,9 @@
+name: LogMsg
+version: 1.3
+author: rfsantos1996
+main: com.jabyftw.logmsg.LogMsg
+description: Simple plugin to change join and quit messages
+permissions:
+  logmsg.silent:
+    description: 'People can join with no message - quit msg only with OP'
+    default: op

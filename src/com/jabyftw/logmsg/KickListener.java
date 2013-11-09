@@ -22,7 +22,7 @@ public class KickListener implements Listener {
             e.setLeaveMessage("");
         } else {
             if (pl.antiSpam) {
-                pl.pendingCon = p.getName();
+                pl.pendingRecon.add(p);
                 e.setLeaveMessage("");
                 pl.getServer().getScheduler().scheduleSyncDelayedTask(pl, new pendingConnect(pl, p, 1), pl.recDelay * 20);
             } else {

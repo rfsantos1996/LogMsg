@@ -9,9 +9,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class LogMsg extends JavaPlugin {
     public List<Player> hasSilent = new ArrayList<Player>();
+    public List<Player> pendingRecon = new ArrayList<Player>();
     public FileConfiguration config;
     public boolean antiSpam, useJoin, useQuit, useKick;
-    public String pendingCon;
     public String joinMsg, quitMsg, kickMsg, recMsg;
     public int recDelay;
     

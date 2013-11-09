@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
  * @author Rafael
  */
 class pendingConnect implements Runnable {
-    
+
     private final Player player;
     private final LogMsg pl;
     private final int from;
@@ -19,18 +19,18 @@ class pendingConnect implements Runnable {
     }
 
     @Override
-    public void run() { // RAN OUT OF TIME, WHAT DO WE DO?
-        if(pl.pendingCon.equalsIgnoreCase(player.getName())) {
-            pl.pendingCon = null;
-            if(from == 0) { // Quit
-                for(Player p : pl.getServer().getOnlinePlayers()) {
+    public void run() {
+        if (pl.pendingRecon.contains(player)) {
+            pl.pendingRecon.remove(player);
+            if (from == 0) { // Quit
+                for (Player p : pl.getServer().getOnlinePlayers()) {
                     p.sendMessage(pl.quitMsg.replaceAll("%player", player.getName()));
                 }
-            } else if(from == 1) { // Kick
-                for(Player p : pl.getServer().getOnlinePlayers()) {
+            } else if (from == 1) { // Kick
+                for (Player p : pl.getServer().getOnlinePlayers()) {
                     p.sendMessage(pl.kickMsg.replaceAll("%player", player.getName()));
                 }
             }
-        }
+        } // else already logged in
     }
 }

@@ -21,7 +21,7 @@ public class QuitListener implements Listener {
             e.setQuitMessage("");
         } else {
             if (pl.antiSpam) {
-                pl.pendingCon = p.getName();
+                pl.pendingRecon.add(p);
                 e.setQuitMessage("");
                 pl.getServer().getScheduler().scheduleSyncDelayedTask(pl, new pendingConnect(pl, p, 0), pl.recDelay * 20);
             } else {

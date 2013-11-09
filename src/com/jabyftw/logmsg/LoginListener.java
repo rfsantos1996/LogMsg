@@ -23,8 +23,8 @@ public class LoginListener implements Listener {
             pl.hasSilent.add(p);
         } else {
             if (pl.antiSpam) {
-                if (pl.pendingCon.equalsIgnoreCase(p.getName())) {
-                    pl.pendingCon = null;
+                if (pl.pendingRecon.contains(p)) {
+                    pl.pendingRecon.remove(p);
                     e.setJoinMessage(pl.recMsg.replaceAll("%player", p.getName()));
                 } else {
                     e.setJoinMessage(pl.joinMsg.replaceAll("%player", p.getName()));

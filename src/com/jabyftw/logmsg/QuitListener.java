@@ -21,9 +21,11 @@ public class QuitListener implements Listener {
             e.setQuitMessage("");
         } else {
             if (pl.antiSpam) {
-                pl.pendingRecon.add(p);
+                if(!pl.pendingRecon.contains(p)) { // fixed bug where kick + quit messages were appearing
+                    pl.pendingRecon.add(p);
+                    pl.getServer().getScheduler().scheduleSyncDelayedTask(pl, new pendingConnect(pl, p, 0), pl.recDelay * 20);
+                }
                 e.setQuitMessage("");
-                pl.getServer().getScheduler().scheduleSyncDelayedTask(pl, new pendingConnect(pl, p, 0), pl.recDelay * 20);
             } else {
                 e.setQuitMessage(pl.quitMsg.replaceAll("%player", p.getName()));
             }

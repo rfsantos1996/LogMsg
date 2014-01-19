@@ -25,12 +25,12 @@ public class LoginListener implements Listener {
             if (pl.antiSpam) {
                 if (pl.pendingRecon.contains(p)) {
                     pl.pendingRecon.remove(p);
-                    e.setJoinMessage(pl.recMsg.replaceAll("%player", p.getName()));
+                    e.setJoinMessage(pl.getLang("onReconnect").replaceAll("%player", p.getName()));
                 } else {
-                    e.setJoinMessage(pl.joinMsg.replaceAll("%player", p.getName()));
+                    e.setJoinMessage(pl.getLang("onJoin").replaceAll("%player", p.getName()));
                 }
             } else {
-                e.setJoinMessage(pl.joinMsg.replaceAll("%player", p.getName()));
+                e.setJoinMessage(pl.getLang("onJoin").replaceAll("%player", p.getName()));
             }
         }
     }

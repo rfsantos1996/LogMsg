@@ -27,7 +27,7 @@ public class QuitListener implements Listener {
                 }
                 e.setQuitMessage("");
             } else {
-                e.setQuitMessage(pl.quitMsg.replaceAll("%player", p.getName()));
+                e.setQuitMessage(pl.getLang("onQuit").replaceAll("%player", p.getName()));
             }
         }
     }

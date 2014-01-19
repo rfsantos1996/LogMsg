@@ -24,11 +24,11 @@ class pendingConnect implements Runnable {
             pl.pendingRecon.remove(player);
             if (from == 0) { // Quit
                 for (Player p : pl.getServer().getOnlinePlayers()) {
-                    p.sendMessage(pl.quitMsg.replaceAll("%player", player.getName()));
+                    p.sendMessage(pl.getLang("onQuit").replaceAll("%player", player.getName()));
                 }
             } else if (from == 1) { // Kick
                 for (Player p : pl.getServer().getOnlinePlayers()) {
-                    p.sendMessage(pl.kickMsg.replaceAll("%player", player.getName()));
+                    p.sendMessage(pl.getLang("onKick").replaceAll("%player", player.getName()));
                 }
             }
         } // else already logged in

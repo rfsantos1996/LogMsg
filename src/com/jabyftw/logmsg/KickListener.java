@@ -10,8 +10,8 @@ public class KickListener implements Listener {
 
     private final LogMsg pl;
 
-    KickListener(LogMsg plugin) {
-        this.pl = plugin;
+    KickListener(LogMsg pl) {
+        this.pl = pl;
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -26,7 +26,7 @@ public class KickListener implements Listener {
                 e.setLeaveMessage("");
                 pl.getServer().getScheduler().scheduleSyncDelayedTask(pl, new pendingConnect(pl, p, 1), pl.recDelay * 20);
             } else {
-                e.setLeaveMessage(pl.kickMsg.replaceAll("%player", p.getName()));
+                e.setLeaveMessage(pl.getLang("onKick").replaceAll("%player", p.getName()));
             }
         }
     }
